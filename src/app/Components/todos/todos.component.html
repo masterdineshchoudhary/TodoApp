@@ -1,1 +1,21 @@
-<p>todos works!</p>
+<div style="text-align: center;">
+  <h6 class="app-title">TODO App</h6>
+</div>
+<div class="container">
+  <input type="text" class="input-text" placeholder="Type a todo" />
+  <button class="add-btn">Add Todo</button>
+  <div class="list">
+    <ul>
+      <li>
+        <input type="checkbox" name="isDone">
+        <ul *ngFor="let todo of todos">
+          <li class="list-item">
+            <h3>{{todo.title}}</h3>
+            <p>{{todo.description}}</p>
+            <button class="btn">Delete</button>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>

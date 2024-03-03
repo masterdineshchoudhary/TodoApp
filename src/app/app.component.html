@@ -1,19 +1,28 @@
-<div style="text-align: center;">
-  <img src="../assets/logo.png" alt="TODO Logo" width="100" height="100" class="logo">
-  <h1 class="app-title">TODO App</h1>
-</div>
-<div class="container">
-  Add a todo...
-  <br>
-  <input type="text" class="input-text" placeholder="Type a todo" />
-  <button class="add-btn">Add Todo</button>
-  <div class="list">
-    <ul>
-      <li>
-        <input type="checkbox" name="isDone">
-        Task 1
-        <button class="btn">Delete</button>
-      </li>
-    </ul>
-  </div>
-</div>
+<ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+  <li [ngbNavItem]="1">
+    <button ngbNavLink>Todo App</button>
+    <ng-template ngbNavContent>
+      <div>
+        <app-todos></app-todos>
+      </div>
+    </ng-template>
+  </li>
+  <li [ngbNavItem]="2">
+    <button ngbNavLink>Reactive Forms</button>
+    <ng-template ngbNavContent>
+      <div>
+        <app-reactive-forms></app-reactive-forms>
+      </div>
+    </ng-template>
+  </li>
+  <li [ngbNavItem]="3">
+    <button ngbNavLink>Apex Charts</button>
+    <ng-template ngbNavContent>
+      <div>
+        <app-apex-charts></app-apex-charts>
+      </div>
+    </ng-template>
+  </li>
+</ul>
+
+<div [ngbNavOutlet]="nav" class="mt-2"></div>

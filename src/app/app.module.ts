@@ -1,24 +1,21 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
+import {
+  BrowserModule,
+  provideClientHydration,
+} from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TodosComponent } from './Components/todos/todos.component';
+import { ApexChartsComponent } from './Components/apex-charts/apex-charts.component';
+import { ReactiveFormsComponent } from './Components/reactive-forms/reactive-forms.component';
+// import { NgApexchartsModule } from 'ng-apexcharts';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    TodosComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    NgbModule
-  ],
-  providers: [
-    provideClientHydration()
-  ],
-  bootstrap: [AppComponent]
+  declarations: [AppComponent, TodosComponent, ApexChartsComponent, ReactiveFormsComponent],
+  imports: [BrowserModule, AppRoutingModule, NgbModule],
+  providers: [provideClientHydration()],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
