@@ -1,19 +1,36 @@
-import { Component } from '@angular/core';
-// import { ApexChart, ApexNonAxisChartSeries } from 'ng-apexcharts';
+import { Component, OnInit } from '@angular/core';
+import { ApexChart } from 'ng-apexcharts';
 
 @Component({
   selector: 'app-apex-charts',
   templateUrl: './apex-charts.component.html',
   styleUrl: './apex-charts.component.css',
 })
-export class ApexChartsComponent {
-  // series: ApexNonAxisChartSeries = [10, 41, 35, 51, 49, 62, 69, 91, 148];
-  // chart: ApexChart = {
-  //   type: 'pie',
-  //   toolbar: {
-  //     show: true,
-  //   },
-  // };
+export class ApexChartsComponent implements OnInit {
+  
+  public chartOptions: any = {};
 
-  constructor() {}
+  constructor() { }
+
+  ngOnInit(): void {
+    this.chartOptions = {
+      series: [44, 55, 13],
+      chart: {
+        width: 380,
+        type: 'pie',
+      },
+      labels: ['Series 1', 'Series 2', 'Series 3'], 
+      title: {
+        text: 'Sample Pie Chart'
+      },
+      responsive: [{
+        breakpoint: 480,
+        options: {
+          chart: {
+            width: 300
+          }
+        }
+      }]
+    };
+  }
 }

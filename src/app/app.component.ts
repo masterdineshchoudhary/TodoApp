@@ -10,5 +10,4 @@ export class AppComponent {
   constructor() {
     // setTimeout(() => {this.title = "New Title"}, 2000);
   }
-  active = 1;
 }

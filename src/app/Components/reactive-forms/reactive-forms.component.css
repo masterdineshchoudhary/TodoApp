@@ -27,7 +27,6 @@ textarea:focus {
   font-weight: 400;
 }
 .btn-block {
-  background-color: green;
   color: #fff;
   font-size: 15px;
   font-weight: 400;
@@ -35,5 +34,5 @@ textarea:focus {
   cursor: pointer;
 }
 .error {
-  border: 1px solid red;
+  color: red;
 }

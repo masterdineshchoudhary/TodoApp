@@ -10,11 +10,17 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TodosComponent } from './Components/todos/todos.component';
 import { ApexChartsComponent } from './Components/apex-charts/apex-charts.component';
 import { ReactiveFormsComponent } from './Components/reactive-forms/reactive-forms.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // import { NgApexchartsModule } from 'ng-apexcharts';
 
 @NgModule({
-  declarations: [AppComponent, TodosComponent, ApexChartsComponent, ReactiveFormsComponent],
-  imports: [BrowserModule, AppRoutingModule, NgbModule],
+  declarations: [
+    AppComponent,
+    TodosComponent,
+    ApexChartsComponent,
+    ReactiveFormsComponent,
+  ],
+  imports: [BrowserModule, AppRoutingModule, NgbModule, ReactiveFormsModule, FormsModule],
   providers: [provideClientHydration()],
   bootstrap: [AppComponent],
 })

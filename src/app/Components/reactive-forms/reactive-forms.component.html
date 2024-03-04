@@ -3,39 +3,86 @@
     <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
       <div class="card">
         <h5 class="text-center mb-4">Reactive Forms</h5>
-        <form class="form-card" (ngSubmit)="onSubmit">
+        <form class="form-card" [formGroup]="myForm">
           <div class="row justify-content-between text-left">
             <div class="form-group col-sm-6 flex-column d-flex">
               <label for="fname" class="form-control-label px-3">First name<span class="text-danger"> *</span></label>
               <input type="text" id="fname" name="fname" placeholder="Enter your first name" formControlName="fname">
+              <div class="error" *ngIf="myForm.get('fname')?.touched && myForm.get('fname')?.invalid">
+                <small *ngIf="myForm.get('fname')?.hasError('required')">First Name is required.</small>
+                <small *ngIf="myForm.get('fname')?.hasError('maxlength')">First Name cannot be more than 20
+                  characters.</small>
+              </div>
             </div>
             <div class="form-group col-sm-6 flex-column d-flex">
               <label for="lname" class="form-control-label px-3">Last name<span class="text-danger"> *</span></label>
               <input type="text" id="lname" name="lname" placeholder="Enter your last name" formControlName="lname">
+              <div class="error" *ngIf="myForm.get('lname')?.touched && myForm.get('lname')?.invalid">
+                <small *ngIf="myForm.get('lname')?.hasError('required')">Last Name is required.</small>
+                <small *ngIf="myForm.get('lname')?.hasError('maxlength')">Last Name cannot be more than 20
+                  characters.</small>
+              </div>
             </div>
           </div>
           <div class="row justify-content-between text-left">
             <div class="form-group col-sm-6 flex-column d-flex">
               <label for="email" class="form-control-label px-3">Email<span class="text-danger"> *</span></label>
-              <input type="text" id="email" name="email" placeholder="Enter your Email" formControlName="email">
+              <input type="email" id="email" name="email" placeholder="Enter your Email" formControlName="email">
+              <div class="error" *ngIf="myForm.get('email')?.touched && myForm.get('email')?.invalid">
+                <small *ngIf="myForm.get('email')?.hasError('required')">Email is required.</small>
+                <small *ngIf="myForm.get('email')?.hasError('email')">Please enter a valid email address.</small>
+                <small *ngIf="myForm.get('email')?.hasError('maxlength')">Email cannot be more than 50
+                  characters.</small>
+              </div>
             </div>
             <div class="form-group col-sm-6 flex-column d-flex">
               <label for="mob" class="form-control-label px-3">Mobile number<span class="text-danger"> *</span></label>
-              <input type="text" id="mob" name="mob" placeholder="Enter your Mobile Number" formControlName="mob">
+              <input type="text" id="mob" name="mob" placeholder="Enter your Mobile Number" autocomplete="email"
+                formControlName="mob">
+              <div class="error" *ngIf="myForm.get('mob')?.touched && myForm.get('mob')?.invalid">
+                <small *ngIf="myForm.get('mob')?.hasError('required')">Mobile Number is required.</small>
+                <small *ngIf="myForm.get('mob')?.hasError('minlength')">Mobile number must be 10 digits.</small>
+                <small *ngIf="myForm.get('mob')?.hasError('maxlength')">Mobile number must be 10 digits.</small>
+                <small *ngIf="myForm.get('mob')?.hasError('pattern')">Please enter a valid mobile number format.</small>
+              </div>
             </div>
           </div>
           <div class="row justify-content-between text-left">
             <div class="form-group col-12 flex-column d-flex">
-              <label for="msg" class="form-control-label px-3">Message<span class="text-danger"> *</span></label>
+              <label for="msg" class="form-control-label px-3">Message</label>
               <input type="text" id="msg" name="msg" placeholder="Type your Message" formControlName="msg">
+              <div class="error" *ngIf="myForm.get('msg')?.touched && myForm.get('msg')?.invalid">
+                <small *ngIf="myForm.get('msg')?.hasError('maxlength')">Message can of 150 character max.</small>
+              </div>
             </div>
           </div>
           <div class="row justify-content-end">
             <div class="form-group">
-              <button type="submit" class="btn btn-block btn-primary">Submit</button>
+              <button type="button" class="btn btn-block btn-primary" (click)="onSubmit()">Submit</button>
             </div>
           </div>
         </form>
+        <h5>Submitted Data</h5>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Email</th>
+              <th>Mobile Number</th>
+              <th>Message</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let data of formData">
+              <td>{{ data.fname }}</td>
+              <td>{{ data.lname }}</td>
+              <td>{{ data.email }}</td>
+              <td>{{ data.mob }}</td>
+              <td>{{ data.msg }}</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>

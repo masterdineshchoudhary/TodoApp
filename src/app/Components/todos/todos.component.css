@@ -1,14 +1,12 @@
 .list ul li button {
   position: relative;
   right: 0%;
-  background: #f34541;
-  color: #fff !important;
+  background: #fff;
+  color: red !important;
   text-transform: uppercase;
   text-decoration: none;
-  margin-left: 10px;
+  margin-left: 20px;
   margin-right: 10px;
-  padding: 10px;
-  border-radius: 0.4rem;
   display: inline-block;
   border: none;
 }
@@ -25,15 +23,15 @@
   border: none;
 }
 
-.app-title {
-  text-align: center;
-  color: #c1c1c1;
-  font-size: 70px;
-}
-
-ul {
-  margin: 0px;
-  padding: 0px;
+input,
+button {
+  padding: 8px 15px;
+  border-radius: 5px;
+  margin: 5px 0px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  font-size: 18px;
+  font-weight: 300;
 }
 
 .list ul li {
@@ -51,4 +49,8 @@ ul {
   color: #000;
   max-width: 500px;
   margin: auto;
+}
+
+.completed {
+  text-decoration: line-through;
 }
